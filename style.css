@@ -1,0 +1,724 @@
+/*GOOGLE FONTS*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+
+/*ESTABLECIMIENTO DEL COLOR QUE SE VA A USAR Y LO QUE SE VA APLICAR 
+A LO LARGO DEL DOCUMENTO */
+:root{
+    --CerveceriaWEB:#A89238;
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all .5s cubic-bezier(.37,1.14,.26,1.24);
+}
+
+*::selection{
+    background:var(--CerveceriaWEB);
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+
+}
+
+/*----------------------------------------------------------------*/
+
+
+/*DISEÑO DE LOS BOTONES QUE SE VERÁ APLICADO EN TODA LA PÁGINA*/
+
+.boton{
+    height:3.5rem;
+    width:15rem;
+    background:none;
+    outline:none;
+    border:.2rem solid var(--CerveceriaWEB);
+    color:var(--CerveceriaWEB);
+    font-size: 2rem;
+    margin:1rem 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+}
+
+.boton::before, .boton::after{
+    position: absolute;
+    content: '';
+    top:0; left:0;
+    height:100%;
+    width: 100%;
+    background:var(--CerveceriaWEB);
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(.37,1.14,.26,1.24);
+}
+
+.boton::before{
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.boton:hover:before{
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.boton::after{
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+}
+
+.boton:hover:after{
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+
+.boton:hover{
+    color:#fff;
+}
+
+/*FIN DEL DISEÑO DE LOS BOTONES*/
+
+/*----------------------------------------------------------------*/
+
+/*INICIO DEL DISEÑO DEL HEADING
+Aplica a todos los titulos  "sobre nosotros", "Nuestros servicios", etc*/
+
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color:#555;
+    padding:1rem;
+    padding-top: 7rem;
+    
+}
+
+/*------------------------------*/
+
+/*DISEÑO DEL HEADER*/
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:#fff;
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+    position: fixed;
+    top:0; left:0;
+    z-index: 1000;
+    padding: 1rem 5rem;
+    width: 100%;
+}
+
+/*DISEÑO DEL LOGO CERVECERIAWEB que está en el header*/
+header .logo{
+    color:var(--CerveceriaWEB);
+    font-size: 3rem;
+}
+
+/*Contenido de la navbar, donde esta nosotros, opinion, menú, servicios, etc*/
+
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+header .navbar ul li{
+    margin:0 1rem;
+}
+
+/*diseño del font de la navbar*/
+
+header .navbar ul li a{
+    font-size: 2rem;
+    color:#666;
+}
+
+/*Cambio de color al mover el mouse sobre las opciones del navbar*/
+
+header .navbar ul li a:hover{
+    color:var(--CerveceriaWEB);
+}
+
+/*----------------------------*/
+
+/*INICIO*/
+
+.inicio{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-color:#fef3cc;
+}
+
+/*Distribución del contenido del inicio (lo que dice beer forever)*/
+.inicio .content{
+    text-align: center;
+    padding:1rem;
+}
+
+/*H1 DEL INCIO: "BEER FOREVER"*/
+
+.inicio .content h1{
+    font-size: 7rem;
+    color:var(--CerveceriaWEB);
+}
+
+/*P del inicio "Una nueva forma de vivir la cerveza"*/
+
+
+.inicio .content p{
+    font-size: 1.9rem;
+    color:#333;
+    padding:1rem 0;
+    width: 70rem;
+}
+
+/*----------------------------*/
+
+/*Sobre nosotros*/
+
+.nosotros .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/*IMAGEN DE UNA BOTELLA Y UN VASO DE CERVEZA*/
+
+.nosotros .row .image{
+    flex:1 1 40rem;
+    padding:2rem;
+}
+
+.nosotros .row .image img{
+    width: 100%;
+    /*Ocupa siempre el 100% del ancho*/
+}
+
+.nosotros .row .content{
+    flex:1 1 40rem;
+    padding:2rem;
+}
+
+/*H3: "Prueben nuestra nueva cerveza doble malta"*/
+.nosotros .row .content h3{
+    font-size: 3rem;
+    color:var(--CerveceriaWEB);
+}
+
+.nosotros .row .content p{
+    font-size: 1.5rem;
+    color:#666;
+    padding:1rem 0;
+}
+
+.nosotros .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nosotros .box-container .box{
+    padding:2rem 1rem;
+    text-align: center;
+    border:.2rem solid var(--CerveceriaWEB);
+    flex:1 1 20rem;
+    margin:2rem;
+    transform: scale(1.1);
+}
+
+
+
+/*Texto adentro de los div (+10,+25,+60,"happy hour") */
+
+.nosotros .box-container .box h3{
+    color:#333;
+    font-size: 2.5rem;
+    padding:1rem 0;
+}
+
+/*Texto adentro de los div ("años de trayectoria", "tipos de cerveza", "platos distintos", etc) */
+
+.nosotros .box-container .box p{
+    color:#666;
+    font-size: 1.7rem;
+}
+
+/*-------------------------------*/
+
+/*NUESTROS SERVICIOS*/
+
+.servicios{
+    background:#f0f0f0;
+    min-height: 100vh;
+}
+
+.servicios .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin:0 auto;
+}
+
+.servicios .box-container .box{
+    flex:1 1 25rem;
+    padding:2rem 1rem;
+    text-align: center;
+    background:#fff;
+    border:.2rem solid var(--CerveceriaWEB);
+    margin:2rem;
+    cursor: pointer;
+}
+
+/*.servicios .box-container .box i{
+    color: var(--CerveceriaWEB);
+    font-size: 4rem;
+    padding:1rem 0;
+}*/
+
+/*Titulo de los div que cuentan nuestros servicios*/
+
+.servicios .box-container .box h3{
+    color: #333;
+    font-size: 2rem;
+}
+
+/*texto de los div que cuentan nuestros servicios*/
+
+.servicios .box-container .box p{
+    color: #666;
+    font-size: 1.5rem;
+    padding:1rem 0;
+}
+
+/* "Saber más" */
+.servicios .box-container .box a{
+    color:#333;
+    font-size: 1.7rem;
+}
+
+/*Cuando te posicionas arriba del saber más, cambia de color*/
+
+.servicios .box-container .box a:hover{
+    color:var(--CerveceriaWEB);
+}
+
+/*Cuanod te posicionas arriva de algun div de nuestros servicios, hace un efecto sombreado */
+
+.servicios .box-container .box:hover{
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+}
+
+/*----------------------------------*/
+
+/*MENU*/
+
+.menu{
+    background:#333;
+    min-height: 100vh;
+}
+
+.menu .heading{
+    color:#fff;
+}
+
+.menu .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:2rem 0;
+    width: 90%;
+    margin:0px auto;
+}
+
+.menu .box-container .box{
+    flex: 1 1 30rem;
+    height: 22rem;
+    box-shadow: 0 .3rem .5rem #000;
+    overflow: hidden;
+    position: relative;
+    margin:1rem;
+}
+
+/*imagenes del menu*/
+
+.menu .box-container .box img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+
+
+/*------------------------*/
+
+/*OPINIONES*/
+
+.opinion{
+    position: relative;
+    z-index: 0;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+/* "Tu opinion nos importa" */
+.opinion .heading {
+    color:#bea547;
+}
+
+/*Video que hay de fondo*/
+
+.opinion .video-container video{
+    position: absolute;
+    top:0; left:0;
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/*FORMULARIO DE OPINIONES*/
+
+.opinion .form-container form{
+    width:80%;
+    margin:2rem auto;
+    padding:2rem;
+    background:rgba(255,255,255,.1);
+    backdrop-filter: blur(.4rem);
+    box-shadow: 0 .3rem .5rem #000;
+    text-align: center;
+    border-top: .1rem solid rgba(255,255,255,.3);
+    border-left: .1rem solid rgba(255,255,255,.3);
+}
+
+.opinion .form-container form .inputBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.opinion .form-container form .inputBox input, select{
+    height:4rem;
+    width: 49%;
+    background:#fff;
+    color:#333;
+    padding:0 1rem;
+    margin:1rem 0;
+    font-size: 1.7rem;
+    outline: none;
+    border:none;
+}
+
+.opinion .form-container form textarea{
+    height:20rem;
+    width: 100%;
+    background:#fff;
+    color:#333;
+    padding:1rem;
+    margin:1rem 0;
+    font-size: 1.7rem;
+    outline: none;
+    border:none;
+    resize: none;
+}
+
+
+/*BOTON ENVIAR*/
+
+.opinion .form-container form input[type="submit"]{
+    color:#6d580a;
+    border-color: #6d580a;
+}
+
+/*EFECTO QUE HACE EL BOTON ENVIAR CUANDO PASAS EL MOUSE*/
+
+.opinion .form-container form input[type="submit"]:hover{
+    color:var(--CerveceriaWEB);
+    border-color: var(--CerveceriaWEB);
+    background:#f8df85;
+}
+
+
+/*-----------------------*/
+
+/*NOVEDADES*/
+
+.novedades{
+    min-height: 100vh;
+}
+
+.novedades .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:2rem 0;
+}
+
+.novedades .box-container .box{
+    width: 35rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+    margin:2rem 1.5rem;
+}
+
+/*IMAGENES*/
+
+.novedades .box-container .box img{
+    height: 23rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.novedades .box-container .box .content{
+    padding:1rem;
+}
+
+
+/*TITULO DE LAS NOVEDADES*/
+.novedades .box-container .box .content h3{
+    font-size: 2.4rem;
+    color:#333;
+}
+
+/*Efecto de cambio de color del titulo cuando pasas el mouse*/
+
+.novedades .box-container .box .content:hover h3{
+    text-decoration: underline;
+    color:var(--CerveceriaWEB);
+}
+
+/*Texto adentro de novedades*/
+
+.novedades .box-container .box .content p{
+    color:#666;
+    font-size: 1.5rem;
+}
+
+/*-----------------------------------*/
+
+/*FOOTER*/
+
+.footer{
+    background:#333;
+}
+
+.footer .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    margin:0 auto;
+}
+
+.footer .box-container .box{
+    margin:2rem;
+    flex:1 1 25rem;
+}
+
+/*Logo en el footer*/
+
+.footer .box-container .box .logo{
+    font-size: 3rem;
+    color:var(--CerveceriaWEB);
+}
+
+/*descripción de la marca*/
+
+.footer .box-container .box p{
+    font-size: 1.7rem;
+    color:#ccc;
+    padding:1rem 0;
+}
+
+/*Compartir: redes sociales*/
+
+.footer .box-container .box .compartir{
+    text-align: center;
+    font-size: 3rem;
+    color:#fff;
+}
+/*NOMBRE DE LAS REDES SOCIALES*/
+
+.footer .box-container .box:nth-child(2) a{
+    text-align: center;
+    font-size: 1.7rem;
+    color:#eee;
+    display: block;
+    padding:.5rem 0;
+}
+
+/*Efecto (subrayado) cuando pasas por arriba de las redes sociales*/
+
+.footer .box-container .box:nth-child(2) a:hover{
+    text-decoration: underline;
+}
+
+/* Titulo: "Recibir novedades" */
+
+.footer .box-container .box .letter{
+    font-size: 3rem;
+    color:#fff;
+}
+
+/*FORMULARIO DONDE PONES EL MAIL*/
+
+.footer .box-container .box form input[type="email"]{
+    padding:0 1rem;
+    outline:none;
+    border:.2rem solid var(--CerveceriaWEB);
+    background:none;
+    font-size: 1.7rem;
+    color:#fff;
+    height:4rem;
+    width:74%;
+}
+
+/*BOTÓN DE ACEPTO*/
+
+.footer .box-container .box form button{
+    outline:none;
+    border:none;
+    background:var(--CerveceriaWEB);
+    font-size: 1.9rem;
+    color:#fff;
+
+    height:4rem;
+    width:25%;
+    cursor: pointer;
+}
+
+/*EFECTO CUANDO PASAS POR ARRIBA DEL BOTON ACEPTO*/
+
+.footer .box-container .box form button:hover{
+    color:var(--CerveceriaWEB);
+    background:none;
+    border:.1rem solid var(--CerveceriaWEB);
+}
+
+/*Sección de derechos reservados*/
+
+
+.footer .derechos_reservados{
+    text-align: center;
+    color:#fff;
+    font-size: 2rem;
+    width:85%;
+    margin:0 auto;
+    padding:2rem 1rem;
+    border-top: .1rem solid #ccc;
+    margin-top: 1px;
+}
+
+.footer .derechos_reservados span{
+    color:var(--CerveceriaWEB);
+}
+/*------------------------------------------*/
+
+/*API*/
+.map {
+	height: 300px;
+	width: 80%;
+    margin: 15vh 10vw;
+}
+
+.h1_api{
+        text-align: center;
+        font-size: 4rem;
+        color:#555;
+        padding:0.5rem;
+        padding-top: 7rem;
+        margin-bottom: 1px;
+        
+    }
+
+
+.api{
+    
+    background-color:#eee;
+
+}
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:768px){
+
+    html{
+        font-size: 55%;
+    }
+
+
+    header .navbar{
+        position: fixed;
+        top:-100rem; left:0;
+        width: 100%;
+        border-top: .1rem solid #ccc;
+        opacity: 0;
+    }
+
+    header .navbar ul{
+        flex-flow: column;
+        padding:2rem 0;
+        background-color: #fff;
+    }
+
+    header .navbar ul li{
+        width: 100%;
+        text-align: center;
+        margin:1rem 0;
+    }
+
+    header .navbar ul li a{
+        font-size: 3rem;
+        display: block;
+    }
+
+    
+    header .nav-toggle{
+        top:6rem; 
+        opacity: 1;
+    }
+
+    .inicio .content h1{
+        font-size: 5rem;
+    }
+
+    .inicio .content p{
+        width: auto;
+    }
+
+    .servicios .box-container{
+        width: auto;
+    }
+
+}
+
+@media (max-width:500px){
+    .opinion .form-container form .inputBox input, select{
+        width: 100%;
+    }
+    .opinion .form-container form{
+        width: 90%;
+    }
+}
